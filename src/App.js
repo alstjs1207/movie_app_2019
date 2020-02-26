@@ -1,15 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 class App extends React.Component{
   state = {
     count:0
   };
   add = () => {
-    console.log("add")
+    // 좋지않은 코딩
+    //this.setState({count: this.state.count + 1});
+    // 좋은 코딩
+    this.setState(current=> ({count: current.count + 1}));
   }
   minus = () => {
-    console.log("minus")
+    // 좋지않은 코딩
+    //this.setState({count: this.state.count - 1});
+    // 좋은 코딩
+    this.setState(current => ({count: current.count - 1}));
   }
   render(){
     return (
