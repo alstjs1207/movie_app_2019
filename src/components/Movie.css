@@ -1,16 +1,7 @@
-.movies {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .movies .movie {
-  width: 29%;
+  width: 45%;
   background-color: white;
   margin-bottom: 70px;
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
   font-weight: 300;
   padding: 20px;
   border-radius: 5px;
@@ -38,8 +29,7 @@
 }
 
 .movie .movie__title,
-.movie .movie__year
- {
+.movie .movie__year {
   margin: 0;
   font-weight: 300;
 }
@@ -62,11 +52,4 @@
 .movie .movie__year {
   margin-right: 10px;
   font-size: 14px;
-}
-
-.movie .movie__rating {
-  margin-bottom: 5px;
-  font-size: 20px;
-  color: #2c2c2c;
-  text-align: right;
 }
