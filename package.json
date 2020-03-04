@@ -2,7 +2,6 @@
   "name": "movie_app_2019",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://openapi.naver.com",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -37,5 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://alstjs1207.github.io/movie_app_2019"
+  "homepage": "https://alstjs1207.github.io/movie_app_2019",
+  "proxy": "https://openapi.naver.com"
 }
