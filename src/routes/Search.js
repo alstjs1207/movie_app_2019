@@ -8,48 +8,64 @@ class Search extends React.Component {
   state = {
     isLoading: true,
     movies: [],
-    value: ""
+    value: "",
+    name: ""
   };
 
   getSearchMovie = async () => {
     console.log('search Movie');
-    const ID_KEY = 'naver_client_id';
-    const SECRET_KEY = 'naver_client_secret';
+    const ID_KEY = 'naver-id';
+    const SECRET_KEY = 'naver-secret';
     const search = this.state.value;
-    if(search  === ""){
-      this.setState({movies:[], isLoading: false})
-    } else {
-      const {data:{items}} = await axios.get(`/v1/search/movie.json?query=${search}&display=20`,{headers:{'X-Naver-Client-Id':ID_KEY,'X-Naver-Client-Secret':SECRET_KEY}});
-      this.setState({movies:items, isLoading: false})
+
+    try {
+      if(search  === ""){
+        this.setState({movies:[], isLoading: false})
+      } else {
+        const {data:{items}} = await axios.get(`/api/v1/search/movie.json?query=${search}&display=20`,{headers:{'X-Naver-Client-Id':ID_KEY,'X-Naver-Client-Secret':SECRET_KEY}});
+        this.setState({movies:items, isLoading: false})
+      }
     }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // node server Proxy setting
+  getTest = async () => {
+    console.log('Test~~~');
+    const {data:{username}} = await axios.get('/test');
+    this.setState({name:username, isLoading: true});
   };
 
   componentDidMount() {
     this.getSearchMovie();
+    //this.getTest();
   };
 
   handleChange = (e: any) => {
-    console.log(e.type + ":", e.target.value);
+    //console.log(e.type + ":", e.target.value);
     this.setState({
       value: e.target.value
     });
   };
 
   handleSubmit = (e: any) => {
-    console.log(e.type + ":", this.state.value);
+    //console.log(e.type + ":", this.state.value);
     e.preventDefault();
     this.getSearchMovie();
   };
 
   render() {
-    const {movies,isLoading} = this.state;
+    const {movies,isLoading, name} = this.state;
+
     return (
       <section className="container">
         {
           isLoading ?
           (
             <div className="loader">
-              <span className="loader__text">Loading..</span>
+              <span className="loader__text">Loading..{this.state.name}</span>
             </div>
           ) :
           (
@@ -60,7 +76,7 @@ class Search extends React.Component {
                 <input className="input_search" type="text" value={this.state.value} onChange={this.handleChange} placeholder="영화를 검색해 보세요." />
                 </div>
                 <div className="movies">
-                {movies.map(movie => ( console.log(movie),
+                {movies.map(movie => (
                   <SearchMovie
                       key={movie.link}
                       id={movie.link}
