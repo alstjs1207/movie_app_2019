@@ -1,8 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 
-function About(props){
-    console.log(props)
-    return <span>this page : aa</span>
+class About extends React.Component {
+  state= {
+    data:''
+  }
+
+  getBordList = async () => {
+    const {data} = await axios.get('/board/list/1');
+    console.log(data);
+    this.setState({data});
+  };
+
+componentDidMount() {
+  this.getBordList();
+};
+
+render() {
+  const data = this.state;
+  return (data)
 }
-
+}
 export default About;

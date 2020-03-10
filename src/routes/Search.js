@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchMovie from '../components/SearchMovie';
 import "./Home.css";
 import "./Search.css";
+import {naverMoviesApi} from '../api';
 
 class Search extends React.Component {
   state = {
@@ -14,15 +15,13 @@ class Search extends React.Component {
 
   getSearchMovie = async () => {
     console.log('search Movie');
-    const ID_KEY = 'c9eO1L0uOQFb2BfbAaRD';
-    const SECRET_KEY = 'M1Ean6tqGj';
     const search = this.state.value;
 
     try {
       if(search  === ""){
         this.setState({movies:[], isLoading: false})
       } else {
-        const {data:{items}} = await axios.get(`/api/v1/search/movie.json?query=${search}&display=20`,{headers:{'X-Naver-Client-Id':ID_KEY,'X-Naver-Client-Secret':SECRET_KEY}});
+        const {data:{items}} = await naverMoviesApi.search(search);
         this.setState({movies:items, isLoading: false})
       }
     }
@@ -33,7 +32,6 @@ class Search extends React.Component {
 
   // node server Proxy setting
   getTest = async () => {
-    console.log('Test~~~');
     const {data:{username}} = await axios.get('/test');
     this.setState({name:username, isLoading: true});
   };
