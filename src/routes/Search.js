@@ -14,8 +14,8 @@ class Search extends React.Component {
 
   getSearchMovie = async () => {
     console.log('search Movie');
-    const ID_KEY = 'naver-id';
-    const SECRET_KEY = 'naver-secret';
+    const ID_KEY = 'c9eO1L0uOQFb2BfbAaRD';
+    const SECRET_KEY = 'M1Ean6tqGj';
     const search = this.state.value;
 
     try {
