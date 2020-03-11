@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter, Route} from 'react-router-dom';
-import About from "./routes/About";
+import BoardMain from "./routes/BoardMain";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Search from "./routes/Search"
@@ -12,7 +12,7 @@ function App(){
   <HashRouter>
     <Navigation />
     <Route path="/" exact={true} component={Home}></Route>
-    <Route path="/about" component={About}></Route>
+    <Route path="/board" component={BoardMain}></Route>
     <Route path="/movie/detail/:id" component={Detail}></Route>
     <Route path="/search" exact={true} component={Search}></Route>
   </HashRouter>
