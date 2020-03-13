@@ -11,7 +11,8 @@ function Board({id, seq, boardcd, userid, year, month, day, title, contents, vie
             state:{
               id,
               boardcd,
-              userid
+              userid,
+              seq
             }
       }}>
       <img src={dir} alt={title} titlt={title}></img>

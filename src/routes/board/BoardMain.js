@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Board from '../components/Board';
+import Board from '../../components/Board';
 
 class BoardMain extends React.Component {
   state= {
@@ -10,8 +10,8 @@ class BoardMain extends React.Component {
   }
 
   getBordList = async () => {
-    const {data:{boardList, repImageList}} = await axios.get('/board/list/1');
-    this.setState({boardList, repImageList, isLoading: false});
+      const {data:{boardList, repImageList}} = await axios.get('board/list/1');
+      this.setState({boardList, repImageList, isLoading: false});
   };
 
 componentDidMount() {
