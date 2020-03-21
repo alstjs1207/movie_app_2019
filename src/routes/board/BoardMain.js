@@ -10,7 +10,7 @@ class BoardMain extends React.Component {
   }
 
   getBordList = async () => {
-      const {data:{boardList, repImageList}} = await axios.get('board/list/1');
+      const {data:{boardList, repImageList}} = await axios.get('http://ec2-15-164-100-174.ap-northeast-2.compute.amazonaws.com:3100/board/list/1');
       this.setState({boardList, repImageList, isLoading: false});
   };
 

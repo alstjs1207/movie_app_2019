@@ -41,7 +41,7 @@ class Search extends React.Component {
       } else {
         const {data: {
             items
-          }} = await axios.get('http://localhost:3001/search',{
+          }} = await axios.get('http://ec2-15-164-100-174.ap-northeast-2.compute.amazonaws.com:3001/search',{
             params:{
               query: search
             }
