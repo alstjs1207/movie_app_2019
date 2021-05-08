@@ -44,6 +44,6 @@
   },
   "homepage": "https://alstjs1207.github.io/movie_app_2019",
   "devDependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   }
 }
