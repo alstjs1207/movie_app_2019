@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const axios = require('axios');
 
-const ID_KEY = 'c9eO1L0uOQFb2BfbAaRD';
-const SECRET_KEY = 'M1Ean6tqGj';
+const ID_KEY = 'ID_KET';
+const SECRET_KEY = 'SECRET_KEY';
 
 app.use(cors());
 
